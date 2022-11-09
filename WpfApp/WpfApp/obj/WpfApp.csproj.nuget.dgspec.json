@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\T017314L\\source\\repos\\WpfApp\\WpfApp\\WpfApp.csproj": {}
+    "C:\\Users\\T017314L\\Documents\\GitHub\\Concurrent-Network-Applications\\WpfApp\\WpfApp\\WpfApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\T017314L\\source\\repos\\WpfApp\\WpfApp\\WpfApp.csproj": {
+    "C:\\Users\\T017314L\\Documents\\GitHub\\Concurrent-Network-Applications\\WpfApp\\WpfApp\\WpfApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\T017314L\\source\\repos\\WpfApp\\WpfApp\\WpfApp.csproj",
+        "projectUniqueName": "C:\\Users\\T017314L\\Documents\\GitHub\\Concurrent-Network-Applications\\WpfApp\\WpfApp\\WpfApp.csproj",
         "projectName": "WpfApp",
-        "projectPath": "C:\\Users\\T017314L\\source\\repos\\WpfApp\\WpfApp\\WpfApp.csproj",
+        "projectPath": "C:\\Users\\T017314L\\Documents\\GitHub\\Concurrent-Network-Applications\\WpfApp\\WpfApp\\WpfApp.csproj",
         "packagesPath": "C:\\Users\\T017314L\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\T017314L\\source\\repos\\WpfApp\\WpfApp\\obj\\",
+        "outputPath": "C:\\Users\\T017314L\\Documents\\GitHub\\Concurrent-Network-Applications\\WpfApp\\WpfApp\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

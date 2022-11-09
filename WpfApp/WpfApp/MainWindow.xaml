@@ -14,21 +14,20 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="659*"/>
-            <ColumnDefinition Width="141*"/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <TextBlock Name = "chatBox" Margin="56,70,26,139" TextWrapping="Wrap" Grid.ColumnSpan="2"/>
-        <TextBox Name = "messageText" Margin="43,329,84,18" TextWrapping="Wrap" Background="White" Cursor="">
+        <TextBlock Name = "chatBox" Margin="41,70,41,139" TextWrapping="Wrap" Foreground="White"/>
+        <TextBox Name = "messageText" Margin="28,344,240,18" TextWrapping="Wrap" Background="#FF272727" Cursor="" Text="asd" Foreground="White">
             <TextBox.Effect>
                 <DropShadowEffect/>
             </TextBox.Effect>
         </TextBox>
-        <Button Content="Button" Click="sendMessageButton_Click" Margin="589,329,30,18" Grid.ColumnSpan="2" IsDefault="True">
+        <Button Content="Send Message" Click="sendMessageButton_Click" Margin="589,329,30,18" IsDefault="True" Foreground="White" Background="#FF232323" FontSize="16">
             <Button.Effect>
                 <DropShadowEffect/>
             </Button.Effect>
         </Button>
-        <Rectangle Stroke="Black" Panel.ZIndex="-10" Grid.ColumnSpan="2" FlowDirection="LeftToRight" RenderTransformOrigin="0.5,0.5">
+        <Rectangle Stroke="Black" Panel.ZIndex="-10" FlowDirection="LeftToRight" RenderTransformOrigin="0.5,0.5">
             <Rectangle.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleX="-1"/>
@@ -39,20 +38,23 @@
             </Rectangle.RenderTransform>
             <Rectangle.Fill>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="#FF281973"/>
-                    <GradientStop Color="#FF116DC3" Offset="1"/>
+                    <GradientStop Color="#FF1A172B"/>
+                    <GradientStop Color="#FF391A5F" Offset="1"/>
                 </LinearGradientBrush>
             </Rectangle.Fill>
         </Rectangle>
-        <Rectangle Stroke="Black" Width="740" Fill="White" Panel.ZIndex="-10" Margin="30,60,0,129" Grid.ColumnSpan="2">
+        <Rectangle Stroke="Black" Width="740" Fill="#FF2D2D2D" Panel.ZIndex="-10" Margin="30,60,30,129">
             <Rectangle.Effect>
                 <DropShadowEffect/>
             </Rectangle.Effect>
         </Rectangle>
-        <TextBox  Name= "localName" Margin="551,10,0,0" TextWrapping="Wrap" Text="Name" Width="219" FontSize="20" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="33" VerticalAlignment="Top">
+        <TextBox  Name= "localName" Margin="551,10,0,0" TextWrapping="Wrap" Width="219" FontSize="20" HorizontalAlignment="Left" Height="33" VerticalAlignment="Top" Background="#FF212121" Foreground="White">
             <TextBox.Effect>
                 <DropShadowEffect/>
             </TextBox.Effect>
         </TextBox>
+        <Label Content="Type Text Here:" HorizontalAlignment="Left" Margin="30,313,0,0" VerticalAlignment="Top" Width="109" Foreground="White"/>
+        <Label Content="Name:" HorizontalAlignment="Left" Margin="500,14,0,0" VerticalAlignment="Top" Width="46" Foreground="White"/>
+        <Label Content="Chat Window" HorizontalAlignment="Left" Margin="30,22,0,0" VerticalAlignment="Top" Width="109" Foreground="White"/>
     </Grid>
 </Window>

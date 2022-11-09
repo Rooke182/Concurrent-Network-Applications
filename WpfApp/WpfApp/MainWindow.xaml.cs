@@ -29,38 +29,26 @@ namespace WpfApp
 
         private void sendMessageButton_Click(object sender, RoutedEventArgs e)
         {
-            string message = messageText.Text;
-
-            ThreadStart ButtonThread = delegate ()
+            if (messageText.Text == "")
             {
-                TextBox messageText2;
-                Dispatcher.Invoke(DispatcherPriority.Normal, messageText2 = "GetMessage");
-                if (messageText.Text == "")
+                MessageBox.Show("No message in Text Box!", "Warning");
+            }
+            else
+            {
+                string message = messageText.Text;
+                messageText.Text = "";
+                if (localName.Text == "")
                 {
-                    MessageBox.Show("No message in Text Box!", "Warning");
+                    MessageBox.Show("Please enter a name into the name box", "Warning");
+                    messageText.Text = message;
                 }
                 else
                 {
-                    messageText.Text = "";
-                    if (localName.Text == "")
-                    {
-                        MessageBox.Show("Please enter a name into the name box", "Warning");
-                        messageText.Text = message;
-                    }
-                    else
-                    {
-                        string name = localName.Text;
-                        Dispatcher.Invoke(DispatcherPriority.Normal, new Action<string>(SendMessage), name + " says: " + message + "\n");
-                    }
+                    string name = localName.Text;
+                    SendMessage(name + " says: " + message + "\n");
                 }
-            };
+            }
 
-            new Thread(ButtonThread).Start();
-        }
-
-        TextBox GetMessage()
-        {
-            return messageText;
         }
 
         private void SendMessage(string status)
