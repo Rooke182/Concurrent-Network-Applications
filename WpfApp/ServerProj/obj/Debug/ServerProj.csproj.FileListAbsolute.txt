@@ -1,0 +1,8 @@
+C:\Users\T017314L\Documents\GitHub\Concurrent-Network-Applications\WpfApp\ServerProj\bin\Debug\ServerProj.exe.config
+C:\Users\T017314L\Documents\GitHub\Concurrent-Network-Applications\WpfApp\ServerProj\bin\Debug\ServerProj.exe
+C:\Users\T017314L\Documents\GitHub\Concurrent-Network-Applications\WpfApp\ServerProj\bin\Debug\ServerProj.pdb
+C:\Users\T017314L\Documents\GitHub\Concurrent-Network-Applications\WpfApp\ServerProj\obj\Debug\ServerProj.csproj.AssemblyReference.cache
+C:\Users\T017314L\Documents\GitHub\Concurrent-Network-Applications\WpfApp\ServerProj\obj\Debug\ServerProj.csproj.SuggestedBindingRedirects.cache
+C:\Users\T017314L\Documents\GitHub\Concurrent-Network-Applications\WpfApp\ServerProj\obj\Debug\ServerProj.csproj.CoreCompileInputs.cache
+C:\Users\T017314L\Documents\GitHub\Concurrent-Network-Applications\WpfApp\ServerProj\obj\Debug\ServerProj.exe
+C:\Users\T017314L\Documents\GitHub\Concurrent-Network-Applications\WpfApp\ServerProj\obj\Debug\ServerProj.pdb
