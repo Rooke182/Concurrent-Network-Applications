@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace ServerProj
@@ -12,6 +14,7 @@ namespace ServerProj
     internal class Server
     {
         private TcpListener tcpListener;
+        ConcurrentDictionary<int, ConnectedClient> clients;
 
         public Server(string ipAddress, int port)
         {
@@ -20,40 +23,49 @@ namespace ServerProj
         }
         public void Start()
         {
+            clients = new ConcurrentDictionary<int, ConnectedClient>();
+            int clientIndex = 0;
+
             tcpListener.Start();
             Console.WriteLine("Listening...");
-            Socket socket = tcpListener.AcceptSocket();
-            Console.WriteLine("Connection Made");
-            ClientMethod(socket);
+            while (true)
+            {
+                Socket socket = tcpListener.AcceptSocket();
+                Console.WriteLine("Connection Made");
+                ConnectedClient client = new ConnectedClient(socket);
+                int index = clientIndex;
+                clientIndex++;
+                clients.TryAdd(index, client);
+                Thread thread = new Thread(() => { ClientMethod(index); });
+                thread.Start();
+            }
         }
+
         public void Stop()
         {
             tcpListener.Stop();
         }
-        private void ClientMethod(Socket socket)
+
+        private void ClientMethod(int index)
         {
             string recievedMessage;
 
             string close = "end";
 
-            NetworkStream stream = new NetworkStream(socket, true);
-            StreamReader reader = new StreamReader(stream, Encoding.UTF8);
-            StreamWriter writer = new StreamWriter(stream, Encoding.UTF8);
+            clients[index].Send("You Have Connected To The Server - send 0 for valid actions");
 
-            writer.WriteLine("You Have Connected To The Server - send 0 for valid actions");
-            writer.Flush();
-
-            while ((recievedMessage = reader.ReadLine()) != null)
+            while ((recievedMessage = clients[index].Read()) != null)
             {
-                writer.WriteLine(GetReturnMessage(recievedMessage));
-                writer.Flush();
+                clients[index].Send(GetReturnMessage(recievedMessage));
 
                 if (recievedMessage == close)
                 {
                     break;
                 }
             }
-            socket.Close();
+            clients[index].Close();
+            ConnectedClient c;
+            clients.TryRemove(index, out c);
         }
         private string GetReturnMessage(string code)
         {

@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
+using ClientProj;
 
 namespace WpfApp
 {
@@ -22,9 +23,24 @@ namespace WpfApp
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        Client m_client;
+        public MainWindow(Client client)
         {
             InitializeComponent();
+            m_client = client;
+        }
+
+        public void UpdateChatBox(string message)
+        {
+            chatBox.Dispatcher.Invoke(() =>
+            {
+                chatBox.Text = message + Environment.NewLine;
+            });
+        }
+
+        public void sendMessageButton_Click(object sender, EventArgs e)
+        {
+            m_client.SendMessage();
         }
 
         private void sendMessageButton_Click(object sender, RoutedEventArgs e)
@@ -54,6 +70,11 @@ namespace WpfApp
         private void SendMessage(string status)
         {
             chatBox.Text += status;
+        }
+
+        private void messageText_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }

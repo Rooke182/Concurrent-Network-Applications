@@ -6,6 +6,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 
 namespace ClientProj
 {
@@ -15,6 +16,7 @@ namespace ClientProj
         NetworkStream stream;
         StreamWriter writer;
         StreamReader reader;
+        MainWindow form;
 
         public Client()
         {
@@ -40,17 +42,22 @@ namespace ClientProj
         public void Run()
         {
             string userInput;
-            ProcessServerResponse();
-            while ((userInput = Console.ReadLine()) != null)
-            {
-                writer.Write(userInput);
-                writer.Flush();
-                if (userInput == "end")
-                {
-                    break;
-                }
-            }
-            tcpClient.Close();
+
+            form = new MainWindow(new Client());
+
+            Thread thread = new Thread(() => {  });
+
+            //ProcessServerResponse();
+            //while ((userInput = Console.ReadLine()) != null)
+            //{
+            //    writer.WriteLine(userInput);
+            //    writer.Flush();
+            //    if (userInput == "end")
+            //    {
+            //        break;
+            //    }
+            //}
+            //tcpClient.Close();
         }
         private void ProcessServerResponse()
         {
